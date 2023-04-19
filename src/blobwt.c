@@ -20,7 +20,7 @@ int getChmod(const char* path){
     char buff[1024];
 
     sprintf(buff, "stat -c %%a %s",path);
-    //sprintf(buff, "stat -f '%%Lp' %s", path);
+    //sprintf(buff, "stat -f '%%Lp' %s", path);                     // MacOS version of stat command
     FILE* pipe = popen(buff, "r"); // exécute la commande ls -l
     if (!pipe) {
         fprintf(stderr, "Erreur lors de l'exécution de la commande\n");
@@ -160,7 +160,7 @@ void restoreWorkTree(WorkTree* wt, char* path){
     }
 }
 
-//VALGRINDED MAIS SAVEWORKTREE MARCHE PAS AVEC DES DOSSIERS (ER ACCES)
+//VALGRINDED
 /*
 int main(){
     
